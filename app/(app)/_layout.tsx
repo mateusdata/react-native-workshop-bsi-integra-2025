@@ -20,11 +20,10 @@ export default function RootLayout() {
        
         <Stack.Protected guard={!!user}>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-           <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />  
         </Stack.Protected>
 
         <Stack.Protected guard={!user}>
-           <Stack.Screen name="(auth)" options={{headerShown: false}} />  
+           <Stack.Screen name="account" options={{headerShown: true}} />  
         </Stack.Protected>
         
       </Stack>

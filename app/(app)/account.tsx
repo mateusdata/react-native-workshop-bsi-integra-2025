@@ -13,7 +13,8 @@ export default function Account() {
 
 
     const onSubmit = async (data: { name: string, password: string, email: string }) => {
-        if (!data.name || !data.email || !data.password) return alert("Por favor, preencha todos os campos.")
+        if (!data.name || !data.email || !data.password ) return alert("Por favor, preencha todos os campos.")
+        if(!data.email.includes("@")) return alert("Por favor, insira um email válido.")
         setUser({ name: data.name, email: data.email, password: parseInt(data.password) })
         await AsyncStorage.setItem("user", JSON.stringify(data))
     }
@@ -34,7 +35,7 @@ export default function Account() {
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, justifyContent: "center", alignItems: "center" },
+    container: { flex: 1, alignItems: "center" },
     textConmtainer: { fontSize: 18, marginBottom: 18 },
     constainerForm: { width: "80%", justifyContent: "center", alignItems: "center", marginTop: 18 },
     input: { borderWidth: 1, borderColor: '#000', width: "90%", height: 40, marginBottom: 10, padding: 10, },
